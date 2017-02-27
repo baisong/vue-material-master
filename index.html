@@ -34,20 +34,25 @@
 
   <body>
     <div id="app" v-cloak>
-      <docs></docs>
+      <md-tabs>
+        <md-tab id="movies" md-label="Movies">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+        </md-tab>
+
+        <md-tab id="music" md-label="Music">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+        </md-tab>
+
+        <md-tab id="books" md-label="Books">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+        </md-tab>
+
+        <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+        </md-tab>
+      </md-tabs>
     </div>
-    <script>
-      Vue.use(VueMaterial)
-      var App = new Vue({
-        el: '#app'
-      })
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-85823257-1', 'auto');
-      ga('send', 'pageview');
-    </script>
   </body>
 </html>
 <!doctype html>
