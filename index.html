@@ -38,7 +38,15 @@
       <md-tabs>
         <template v-for="cluster in clusters">
           <md-tab v-bind:id="cluster" v-bind:md-label="cluster">
-            <p>{{ cluster }}</p>
+            <h2>{{ cluster }}</h2>
+            <md-theme md-name="white">
+            <md-tabs md-fixed>
+              <template v-for="group in matchgroups">
+                <md-tab v-bind:id="cluster" v-bind:md-label="cluster">
+                </md-tab>
+              </template>
+            </md-tabs>
+            </md-theme>
           </md-tab>
         </template>
       </md-tabs>
@@ -87,7 +95,8 @@
         el: '#app',
         data: {
           clusters: KWM.clusters,
-          matches: KWM.matches
+          matches: KWM.matches,
+          matchgroups: ['legal', 'group'. 'etc']
         }
       });
     </script>
