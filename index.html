@@ -36,9 +36,11 @@
   <body>
     <div id="app" v-cloak>
       <md-tabs>
-        <md-tab v-for="cluster in clusters" id="cluster" md-label="cluster">
-          <p>{{ cluster }}</p>
-        </md-tab>
+        <template v-for="cluster in clusters">
+          <md-tab id="cluster" md-label="cluster">
+            <p>{{ cluster }}</p>
+          </md-tab>
+        </template>
       </md-tabs>
     </div>
   </body>
