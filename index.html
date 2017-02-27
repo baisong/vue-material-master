@@ -39,7 +39,7 @@
         <template v-for="cluster in clusters">
           <md-tab v-bind:id="cluster" v-bind:md-label="cluster">
             <h2>{{ cluster }}</h2>
-            <md-theme md-name="white">
+            <md-theme md-name="gray">
             <md-tabs md-fixed>
               <template v-for="group in matchgroups">
                 <md-tab v-bind:id="group" v-bind:md-label="group">
