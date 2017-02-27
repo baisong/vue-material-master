@@ -36,7 +36,7 @@ var KWM = {
  * For each ethnic cluster,
  * Create an Ad Campaign
  * Create 12 ad groups:
- * - just names, 
+ * - just names,
  * - noun suffix,
  * - interest suffix x6
  * - verbs prefix
@@ -130,6 +130,7 @@ var c = ['women', 'men', 'youth', 'children', 'boys', 'girls', 'families', 'seni
 var d = ['immigrant', 'migrant', 'refugee', 'newcomer', 'citizen', 'neighbor', 'resident', 'american'];
 var d_plural = ['immigrants', 'migrants', 'refugees', 'newcomers', 'people', 'nieghbors', 'residents', 'americans'];
 for (var cl = 0; cl < KWM.clusters.length; cl++) {
+	/*
 	var cluster = KWM.clusters[cl];
 	var a = clusters[cluster];
 	var nouns_prefix = ['new', 'recent', 'newcomer', '2015', '2016', '2017'];
@@ -180,5 +181,5 @@ for (var cl = 0; cl < KWM.clusters.length; cl++) {
 		if (descriptors.hasOwnProperty(key3)) {
 			KWM.matches[cluster] = KWM.matches[cluster].concat(substArray(descriptors[key3], keywords));
 		}
-	}
+	}*/
 }
