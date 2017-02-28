@@ -35,6 +35,7 @@
 
   <body>
     <div id="app" v-cloak>
+    <md-layout md-gutter>
       <md-tabs>
         <template v-for="e in ethnicities">
           <md-tab v-bind:id="e.name" v-bind:md-label="e.name">
@@ -50,6 +51,7 @@
           </md-tab>
         </template>
       </md-tabs>
+      </md-layout>
     </div>
     <script>
       Vue.use(VueMaterial)
