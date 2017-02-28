@@ -152,7 +152,8 @@ var KWM = {
 			donating: ['donate ~', 'donating ~', 'how to donate ~', 'donate to ~', 'donating to ~', 'how to donate to ~', 'give ~', 'giving ~', 'how to give ~', 'give to ~', 'giving to ~', 'how to give to ~', 'give money ~', 'giving money ~', 'how to give money ~', 'give money to ~', 'giving money to ~', 'how to give money to ~', 'support ~', 'supporting ~', 'how to support ~', 'stand with ~', 'standing with ~', 'how to stand with ~', 'stand up for ~', 'standing up for ~', 'how to stand up for ~', 'solidarity ~', 'solidarity with ~', 'help ~', 'helping ~', 'how to help ~', 'volunteer ~', 'volunteering ~', 'how to volunteer ~', 'volunteer with ~', 'volunteering with ~', 'how to volunteer with ~', 'volunteer for ~', 'volunteering for ~', 'how to volunteer for ~', 'take action ~', 'taking action ~', 'how to take action ~', 'take action for ~', 'taking action for ~', 'how to take action for ~', 'about ~', 'find ~', 'learn ~', 'learn about ~'],
 			geo_prefix: ['california ~', "california's ~", 'californian ~', 'southern california ~', 'san diego ~', "san diego's ~", 'san diegan ~', 'los angeles ~', 'american ~', 'u.s. ~', 'united states ~', 'usa ~'],
 			geo_suffix: ['~ in san diego', '~ san diego', '~ in california', '~ california', '~ in southern california', '~ southern california', '~ in san diego ca', '~ in san diego california', '~ in us', '~ in u.s.', '~ in usa', '~ in united states', '~ in america', '~ usa', '~ u.s.a.', '~ u.s.', '~ us', '~ united', , '~ united states', '~ america'],
-		}
+		},
+		keywords: ['Loading']
 	},
 	suffixArray(arr, string) {
 		var newArray = [];

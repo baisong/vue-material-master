@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="dist/vue-material.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <script src="https://unpkg.com/vue"></script>
     <script src="dist/vue-material.js"></script>
@@ -40,6 +41,7 @@
         <template v-for="e in ethnicities">
           <md-tab v-bind:id="e.name" v-bind:md-label="e.name">
             <md-card>
+              <md-card-content>
               <md-button-toggle md-single>
                 <template v-for="group in groups">
                   <md-button v-bind:id="group.name" v-bind:md-label="group.name">
@@ -47,11 +49,19 @@
                   </md-button>
                 </template>
               </md-button-toggle>
+              </md-card-content>
             </md-card>
           </md-tab>
         </template>
       </md-tabs>
       </md-layout>
+      <md-card>
+              <md-card-content>
+              <ul v-for="keyword in keywords">
+                {{ keyword }}
+              </ul>
+              </md-card-content>
+              </md-card>
     </div>
     <script>
       Vue.use(VueMaterial)
