@@ -39,11 +39,10 @@
       <md-tabs>
         <template v-for="e in ethnicities">
           <md-tab v-bind:id="e.name" v-bind:md-label="e.name">
-            <md-theme md-name="grey">
-            <md-tabs md-fixed>
+            <md-button-toggle>
               <template v-for="group in groups">
-                <md-tab v-bind:id="group.name" v-bind:md-label="group.name">
-                Test
+                <md-button v-bind:id="group.name" v-bind:md-label="group.name">
+                {{ group.name }}
                 </md-tab>
               </template>
             </md-tabs>
