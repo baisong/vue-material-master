@@ -68,41 +68,157 @@
     </md-card>
   </div>
   <script>
-      Tabletop.init({key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
-         callback: function(sheet, tabletop) {
-         console.log(sheet);
-         window.sheet = sheet;
-      },simpleSheet:true});
-      Vue.use(VueMaterial);
-      var App = new Vue({
-        el: '#app',
-        data: KWM.data,
-        methods: {
-          generateKeywords: function (e, g) {
-            return [e.name, g.name];
-          }
-        },
-        watch: {
-          activeEthnicity: function (val) {
-            this.keywords = [val, this.activeGroup];
-            //this.keywords = [this.ethnicities[val].name, this.groups[val].name];
-          },
-          activeGroup: function (val) {
-            this.keywords = [this.activeEthnicity, val];
-          }
-        },
-        computed: {
-          // a computed getter
-            keywords: function () {
-              return this.generateKeywords(
-                this.ethnicities[this.activeEthnicity],
-                this.groups[this.activeGroup]);
-            },
-            title: function () {
-              return this.ethnicities[this.activeEthnicity].name + ":" + this.groups[this.activeGroup].name;
-            }
-          }
-      });
-    </script>
-  </body>
+ Tabletop.init({
+   key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
+   callback: function(sheet, tabletop) {
+     console.log(sheet);
+     window.sheet = sheet;
+   },
+   simpleSheet: true
+ });
+ Vue.use(VueMaterial);
+ var App = new Vue({
+   el: '#app',
+   data: KWM.data,
+   methods: {
+     generateKeywords: function(e, g) {
+       return [e.name, g.name];
+     },
+     suffixArray: function(arr, string) {
+       var newArray = [];
+       for (var i = 0; i < arr.length; i++) {
+         newArray.push(arr[i].concat(string));
+       }
+       return newArray;
+     },
+     prefixArray: function(arr, string) {
+       var newArray = [];
+       for (var i = 0; i < arr.length; i++) {
+         newArray.push(string.concat(arr[i]));
+       }
+       return newArray;
+     },
+     union: function(arr1, arr2) {
+       return arr1.concat(arr2);
+     },
+     joinArr: function(arr1, arr2) {
+       var newArray = [];
+       console.log('jn:');
+       console.log(arr1);
+       console.log(arr2);
+       console.log('/jn');
+       for (var i = 0; i < arr2.length; i++) {
+         newArray = newArray.concat(suffixArray(arr1, arr2[i]));
+       }
+       return newArray;
+     },
+     sandWich: function(arr1, arr2, arr3) {
+       console.log('sw:');
+       console.log(arr1);
+       console.log(arr2);
+       console.log(arr3);
+       console.log('/sw');
+       return joinArr(joinArr(arr1, arr2), arr3);
+     },
+     excludeItemsContaining: function(arr, string) {
+       var newArray = [];
+       for (var i = 0; i < arr.length; i++) {
+         if (!arr[i].includes(string)) newArray.push(arr[i]);
+       }
+       return newArray;
+     },
+     substArray: function(templates, variables) {
+       var newArray = [];
+       for (var i = 0; i < templates.length; i++) {
+         for (var j = 0; j < variables.length; j++) {
+           newArray.push(templates[i].replace('~', variables[j]));
+         }
+       }
+       return newArray;
+     },
+     expandEthnicities: function (words) {
+      var suffixes = [];
+      for (var i = 0; i < words.length; i++) {
+        var word = words[i];
+        if (word.slice(-1) === '!') {
+          word = word.slice(word.length - 1);
+          suffixes.push('-american');
+        }
+        if (word.slice(-1) === '~') {
+          word = word.slice(word.length - 1);
+          suffixes.push('-born');
+        }
+        if (word.slice(-1) === '*') {
+          word = word.slice(word.length - 1);
+          suffixes.push('-speaking');
+        }
+      }
+      return this.prefixArray(suffixes, word);
+     },
+     generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
+      //var e = ethnicity.words;
+      return this.expandEthnicities(ethnicity.words);
+      /*
+       var keywords = [];
+       var cluster = KWM.clusters[cl];
+       var ethnicities_plural = suffixArray(ethnicities, "s");
+       var keywords = [];
+       keywords = keywords.concat(ethnicities);
+       keywords = keywords.concat(ethnicities_plural);
+       keywords = keywords.concat(d);
+       keywords = keywords.concat(d_plural);
+       // a + (" " OR "-") + b  . . . (AB)
+       var AB = sandWich(ethnicities, [" ", "-"], data.compound_suffixes);
+       keywords = keywords.concat(AB);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", AB));
+       // TODO
+       // PREFIX ALL WITH REFUGEE
+       // (a OR AB) + " " + c . . . . (ABC)
+       var ABC = sandWich(union(ethnicities, AB), " ", c);
+       keywords = keywords.concat(ABC);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", ABC));
+       // (a OR AB) + " " + (d OR d_plural). . . . (ABD)
+       var ABD = sandWich(union(ethnicities, AB), " ", union(d, d_plural));
+       keywords = keywords.concat(ABD);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", ABD));
+       keywords = keywords.concat(suffixArray(ethnicities, "-american"));
+       keywords = keywords.concat(suffixArray(ethnicities, "-americans"));
+       keywords = excludeItemsContaining(keywords, "american american");
+       keywords = excludeItemsContaining(keywords, "americans american");
+       keywords = excludeItemsContaining(keywords, "american americans");
+       keywords = excludeItemsContaining(keywords, "americans americans");
+       if (includeOrg) {
+         keywords = keywords.concat(substArray(data.templates.nouns_suffix, keywords));
+       }
+       if (templateKey === "Name") {
+         return keywords;
+       }
+       if (data.templates.hasOwnProperty(templateKey)) {
+         return substArray(data.templates[templateKey], keywords);
+       }
+       return [];
+       */
+     }
+   },
+   watch: {
+     activeEthnicity: function(val) {
+       this.keywords = [val, this.activeGroup];
+       //this.keywords = [this.ethnicities[val].name, this.groups[val].name];
+     },
+     activeGroup: function(val) {
+       this.keywords = [this.activeEthnicity, val];
+     }
+   },
+   computed: {
+     // a computed getter
+     keywords: function() {
+       return this.generateKeywords(this.ethnicities[this.activeEthnicity], this.groups[this.activeGroup]);
+     },
+     title: function() {
+       return this.ethnicities[this.activeEthnicity].name + ":" + this.groups[this.activeGroup].name;
+     }
+   }
+ });
+  </script>
+</body>
 </html>
