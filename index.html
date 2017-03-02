@@ -45,7 +45,7 @@
               <md-card-content>
               <md-button-toggle md-single>
                 <template v-for="(group, j) in groups">
-                  <md-button v-on:click.native="activeGroup = j" v-bind:id="group.name" v-bind:md-label="group.name">
+                  <md-button v-on:click.native="activeGroup = j" v-bind:id="group.name" v-bind:md-label="group.name" v-bind:class="{ active: (j == activeGroup)}">
                     {{ group.name }}
                   </md-button>
                 </template>
