@@ -149,7 +149,7 @@ var KWM = {
 			includeOrg: true
 		}],
 		term_groups: {
-			adj_prefix: ['best', 'good', 'trusted', 'most impact', 'impact', 'amazing', 'incredible', 'top', 'biggest', 'exciting', 'inspiring', 'moving', 'successful', 'success', 'successes', 'win', 'wins', 'victory', 'champion'],
+			adj_prefix: ['best', 'good', 'trusted', 'most impact', 'impact', 'amazing', 'incredible', 'top', 'biggest', 'exciting', 'inspiring', 'moving', 'successful', 'success', 'successes', 'win', 'wins', 'victory', 'victories', 'champion', 'champions'],
 			funders: ['funder', 'funders', 'philanthropy', 'philanthropist', 'philanthropists', 'smart philanthropy', 'smart philanthropy', 'rapid response', 'scapegoating', 'islamophobia', 'anti-islamophobia', 'refugeeswelcome', 'refugees welcome', 'anti-trump', 'anti trump', 'resist', 'resistance', 'integrated voter engagement', 'ive', 'black lives matter', 'blacklivesmatter', 'black lives', 'blacklives', 'blm'],
 			nouns_suffix: ['community', 'communities', 'org', 'orgs', 'leader', 'leaders', 'leadership', 'leadership development', 'community leader', 'community leaders', 'housing initiative', 'organization', 'organizations', 'organizing', 'organizer', 'organizers', 'community organizer', 'community organizers', 'community organizing', 'nonprofit', 'nonprofits', 'non-profit', 'non-profits', 'non profit', 'non profits', 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations'],
 			leader: ['lawyer', 'lawyers', 'legislation', 'representative', 'representatives', 'politician', 'politicians', 'ally', 'allies', 'alliance', 'alliances', 'coalition', 'coalitions', 'rights'],
