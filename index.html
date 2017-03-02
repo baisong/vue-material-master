@@ -109,7 +109,7 @@
       if (arrays.length == 2) {
         return arrays[0].concat(arrays[1]);
       }
-      return this.union([[arrays[0].concat(arrays[1])], arrays.slice(2)]);
+      return this.union([arrays[0], arrays[1].concat(arrays.slice(2)]);
      },
      joinArr: function(arr1, arr2) {
        var newArray = [];
