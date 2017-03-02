@@ -45,7 +45,7 @@
               <md-card-content>
               <md-button-toggle md-single>
                 <template v-for="(group, j) in groups">
-                  <md-button v-on:click.native="activeGroup = j" v-bind:id="group.name" v-bind:md-label="group.name" v-bind:class="{ active: (j == activeGroup)}">
+                  <md-button v-on:click.native="activeGroup = j" v-bind:id="group.name" v-bind:md-label="group.name">
                     {{ group.name }}
                   </md-button>
                 </template>
@@ -75,10 +75,8 @@
         el: '#app',
         data: KWM.data,
         methods: {
-          setActiveState: function (event) {
-            console.log('Hi!');
-            this.keywords = [i, j];
-            console.log(i + " " + j);
+          generateKeywords: function (e, g) {
+            return [e.name, g.name];
           }
         },
         watch: {
@@ -93,7 +91,9 @@
         computed: {
           // a computed getter
             keywords: function () {
-              return [this.activeEthnicity, this.activeGroup];
+              return this.generateKeywords(
+                this.ethnicities[this.activeEthnicity],
+                this.groups[this.activeGroup]);
             }
           }
       });
