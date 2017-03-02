@@ -203,10 +203,11 @@
      },
      generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
       //var e = ethnicity.words;
+      var ethnicities = this.expandEthnicities(ethnicity.words);
       return this.union([
-        this.expandEthnicities(ethnicity.words),
-        ['test', 'one'],
-        ['test', 'two']
+        ethnicities,
+        this.arrayProduct(ethnicities, [" "], ["refugee", "refugees"]),
+        this.arrayProduct(["refugee", "refugees"], [" "], ethnicities)
         ]);
       /*
        var keywords = [];
