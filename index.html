@@ -38,13 +38,13 @@
     <div id="app" v-cloak>
     <md-layout md-gutter>
       <md-tabs>
-        <template v-for="e in ethnicities">
-          <md-tab v-bind:id="e.name" v-bind:md-label="e.name">
+        <template v-for="(e, i) in ethnicities">
+          <md-tab v-on:click="activeEthnicity = i" v-bind:id="e.name" v-bind:md-label="e.name">
             <md-card>
               <md-card-content>
               <md-button-toggle md-single>
-                <template v-for="group in groups">
-                  <md-button v-bind:id="group.name" v-bind:md-label="group.name">
+                <template v-for="(group, j) in groups">
+                  <md-button v-on:click="activeGroup = j" v-bind:id="group.name" v-bind:md-label="group.name">
                     {{ group.name }}
                   </md-button>
                 </template>
@@ -67,8 +67,22 @@
       Vue.use(VueMaterial)
       var App = new Vue({
         el: '#app',
-        data: KWM.data
+        data: KWM.data,
+        watch: {
+          activeEthnicity: function (val) {
+            this.keywords = [val, this.activeGroup];
+            //this.keywords = [this.ethnicities[val].name, this.groups[val].name];
+          },
+          activeGroup: function (val) {
+            this.keywords = [this.activeEthnicity, val];
+          }
+        }
       });
+      Tabletop.init({key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
+         callback: function(sheet, tabletop) {
+         console.log(sheet);
+         window.sheet = sheet;
+       },simpleSheet:true})
     </script>
   </body>
 </html>
