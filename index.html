@@ -141,15 +141,15 @@
       for (var i = 0; i < words.length; i++) {
         var word = words[i];
         if (word.slice(-1) === '!') {
-          word = word.slice(word.length - 1);
+          word = word.slice(0, -1);
           suffixes.push('-american');
         }
         if (word.slice(-1) === '~') {
-          word = word.slice(word.length - 1);
+          word = word.slice(0, -1);
           suffixes.push('-born');
         }
         if (word.slice(-1) === '*') {
-          word = word.slice(word.length - 1);
+          word = word.slice(0, -1);
           suffixes.push('-speaking');
         }
       }
