@@ -137,8 +137,9 @@
        return newArray;
      },
      expandEthnicities: function (words) {
-      var suffixes = [];
+      var ethnicities = [];
       for (var i = 0; i < words.length; i++) {
+        var suffixes = [];
         var word = words[i];
         if (word.slice(-1) === '!') {
           word = word.slice(0, -1);
@@ -152,8 +153,9 @@
           word = word.slice(0, -1);
           suffixes.push('-speaking');
         }
+        ethnicities = enthicities.concat(this.prefixArray(suffixes, word));
       }
-      return this.prefixArray(suffixes, word);
+      return ethnicities;
      },
      generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
       //var e = ethnicity.words;
