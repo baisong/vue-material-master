@@ -204,9 +204,22 @@
      generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
       //var e = ethnicity.words;
       var ethnicities = this.expandEthnicities(ethnicity.words);
+      var placepeople = [];
+      var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
+      var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
+      var demonympronouns = this.arrayProduct([KWM.data.demonym_suffixes, KWM.data.pronoun_suffixes_plural]);
+      var demprodempro = this.union([demonyms, pronouns, demonympronouns]);
+      if (ethnicity.hasOwnProperty('places')) {
+        var placepeople = this.union([
+          this.arrayProduct([ethnicity.places, [" "], demprodempro]),
+          this.arrayProduct([demprodempro, [" ", " of ", " from "], ethnicity.places])
+        ]);
+      }
       return this.union([
         ethnicities,
+        placepeople,
         this.arrayProduct([ethnicities, [" "], ["refugee", "refugees"]]),
+        this.arrayProduct([ethnicities, [" "], ["refugee", "refugees"], pronouns]),
         this.arrayProduct([["refugee", "refugees"], [" "], ethnicities])
         ]);
       /*
@@ -234,10 +247,6 @@
        keywords = keywords.concat(sandWich(nouns_prefix, " ", ABD));
        keywords = keywords.concat(suffixArray(ethnicities, "-american"));
        keywords = keywords.concat(suffixArray(ethnicities, "-americans"));
-       keywords = excludeItemsContaining(keywords, "american american");
-       keywords = excludeItemsContaining(keywords, "americans american");
-       keywords = excludeItemsContaining(keywords, "american americans");
-       keywords = excludeItemsContaining(keywords, "americans americans");
        if (includeOrg) {
          keywords = keywords.concat(substArray(data.templates.nouns_suffix, keywords));
        }
