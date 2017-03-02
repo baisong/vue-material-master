@@ -65,7 +65,12 @@
               </md-card>
     </div>
     <script>
-      Vue.use(VueMaterial)
+      Tabletop.init({key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
+         callback: function(sheet, tabletop) {
+         console.log(sheet);
+         window.sheet = sheet;
+      },simpleSheet:true});
+      Vue.use(VueMaterial);
       var App = new Vue({
         el: '#app',
         data: KWM.data,
@@ -84,13 +89,14 @@
           activeGroup: function (val) {
             this.keywords = [this.activeEthnicity, val];
           }
-        }
+        },
+        computed: {
+          // a computed getter
+            keywords: function () {
+              return [this.activeEthnicity, this.activeGroup];
+            }
+          }
       });
-      Tabletop.init({key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
-         callback: function(sheet, tabletop) {
-         console.log(sheet);
-         window.sheet = sheet;
-       },simpleSheet:true})
     </script>
   </body>
 </html>
