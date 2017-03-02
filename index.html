@@ -109,6 +109,8 @@
       if (arrays.length == 2) {
         return arrays[0].concat(arrays[1]);
       }
+      var a = arrays[0].concat(arrays[1]);
+      var b = arrays.slice(2);
       return arrays[0].concat(this.union([arrays[1], arrays.slice(2)]));
      },
      joinArr: function(arr1, arr2) {
