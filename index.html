@@ -206,8 +206,8 @@
       var ethnicities = this.expandEthnicities(ethnicity.words);
       return this.union([
         ethnicities,
-        this.arrayProduct(ethnicities, [" "], ["refugee", "refugees"])//,
-        //this.arrayProduct(["refugee", "refugees"], [" "], ethnicities)
+        this.arrayProduct([ethnicities, [" "], ["refugee", "refugees"]]),
+        this.arrayProduct([["refugee", "refugees"], [" "], ethnicities])
         ]);
       /*
        var keywords = [];
