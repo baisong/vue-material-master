@@ -207,7 +207,7 @@
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
-      var demonympronouns = this.arrayProduct([KWM.data.demonym_suffixes, KWM.data.pronoun_suffixes_plural]);
+      var demonympronouns = this.arrayProduct([KWM.data.demonym_suffixes, [" "], KWM.data.pronoun_suffixes_plural]);
       var demprodempro = this.union([demonyms, pronouns, demonympronouns]);
       if (ethnicity.hasOwnProperty('places')) {
         var placepeople = this.union([
