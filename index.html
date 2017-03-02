@@ -57,14 +57,17 @@
       </md-tabs>
       </md-layout>
       <md-card>
-              <md-card-content>
-              <ul v-for="keyword in keywords">
-                {{ keyword }}
-              </ul>
-              </md-card-content>
-              </md-card>
-    </div>
-    <script>
+      <md-card-header>
+        <div class="md-title">{{ title }}</div>
+      </md-card-header>
+      <md-card-content>
+        <ul v-for="keyword in keywords">
+          {{ keyword }}
+        </ul>
+      </md-card-content>
+    </md-card>
+  </div>
+  <script>
       Tabletop.init({key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
          callback: function(sheet, tabletop) {
          console.log(sheet);
@@ -94,6 +97,9 @@
               return this.generateKeywords(
                 this.ethnicities[this.activeEthnicity],
                 this.groups[this.activeGroup]);
+            }
+            title: function () {
+              return this.ethnicities[this.activeEthnicity].name + ":" + this.groups[this.activeGroup].name;
             }
           }
       });
