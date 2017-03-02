@@ -59,6 +59,7 @@
       <md-card>
       <md-card-header>
         <div class="md-title">{{ title }}</div>
+        <div class="md-subhead">{{ subhead }}</div>
       </md-card-header>
       <md-card-content>
         <ul v-for="keyword in keywords">
@@ -221,6 +222,9 @@
      },
      title: function() {
        return this.ethnicities[this.activeEthnicity].name + ":" + this.groups[this.activeGroup].name;
+     }
+     subhead: function() {
+       return this.keywords.length;
      }
    }
  });
