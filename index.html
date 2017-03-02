@@ -40,12 +40,12 @@
     <md-layout md-gutter>
       <md-tabs>
         <template v-for="(e, i) in ethnicities">
-          <md-tab v-on:click="setActiveState(i,0)" v-bind:id="e.name" v-bind:md-label="e.name">
+          <md-tab v-on:click="setActiveState" v-bind:id="e.name" v-bind:md-label="e.name">
             <md-card>
               <md-card-content>
               <md-button-toggle md-single>
                 <template v-for="(group, j) in groups">
-                  <md-button v-on:click="setActiveState(i,j)" v-bind:id="group.name" v-bind:md-label="group.name">
+                  <md-button v-on:click="setActiveState" v-bind:id="group.name" v-bind:md-label="group.name">
                     {{ group.name }}
                   </md-button>
                 </template>
@@ -70,7 +70,7 @@
         el: '#app',
         data: KWM.data,
         methods: {
-          setActiveState: function (i, j) {
+          setActiveState: function () {
             console.log('Hi!');
             this.keywords = [i, j];
             console.log(i + " " + j);
