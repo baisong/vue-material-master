@@ -137,6 +137,23 @@
        }
        return newArray;
      },
+     selectText: function (element) {
+        var doc = document
+            , text = doc.getElementById(element)
+            , range, selection
+        ;
+        if (doc.body.createTextRange) {
+            range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+        } else if (window.getSelection) {
+            selection = window.getSelection();
+            range = document.createRange();
+            range.selectNodeContents(text);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    },
      expandEthnicities: function (words) {
       var ethnicities = [];
       for (var i = 0; i < words.length; i++) {
@@ -222,7 +239,7 @@
      },
      title: function() {
        return this.ethnicities[this.activeEthnicity].name + ":" + this.groups[this.activeGroup].name;
-     }
+     },
      subhead: function() {
        return this.keywords.length;
      }
