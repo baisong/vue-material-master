@@ -99,8 +99,18 @@
        }
        return newArray;
      },
-     union: function(arr1, arr2) {
-       return arr1.concat(arr2);
+     union: function(arrays) {
+      if (arrays.length == 0) {
+        return [];
+      }
+      if (arrays.length == 1) {
+        return arrays[0];
+      }
+      if (arrays.length == 2) {
+        return arrays[0].concat(arrays[1]);
+      }
+      return this.union(arrays[0].concat(arrays[1]), arrays.slice(2));
+       return
      },
      joinArr: function(arr1, arr2) {
        var newArray = [];
@@ -192,7 +202,11 @@
      },
      generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
       //var e = ethnicity.words;
-      return this.expandEthnicities(ethnicity.words);
+      return return this.union(
+        this.expandEthnicities(ethnicity.words),
+        ['test', 'one'],
+        ['test', 'two']
+        );
       /*
        var keywords = [];
        var cluster = KWM.clusters[cl];
