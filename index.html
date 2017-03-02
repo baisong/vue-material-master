@@ -129,9 +129,9 @@
         return arrays[0];
       }
       if (arrays.length == 2) {
-        return this.sandWich(arrays[0], arrays[1]);
+        return this.joinArr(arrays[0], arrays[1]);
       }
-      return this.arrayProduct(this.sandWich(arrays[0], arrays[1]).concat(arrays.slice(3)));
+      return this.arrayProduct(this.joinArr(arrays[0], arrays[1]).concat(arrays.slice(3)));
      },
      excludeItemsContaining: function(arr, string) {
        var newArray = [];
