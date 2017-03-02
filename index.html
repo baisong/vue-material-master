@@ -71,7 +71,8 @@
         data: KWM.data,
         methods: {
           setActiveState: function (i, j, event) {
-            this.keywords = [i, j];
+            console.log('Hi!');
+            this.keywords.$set([i, j]);
             console.log(i + " " + j);
           }
         },
