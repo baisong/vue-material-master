@@ -121,6 +121,18 @@
        console.log('/sw');
        return joinArr(joinArr(arr1, arr2), arr3);
      },
+     arrayProduct: function(arrays) {
+      if (arrays.length == 0) {
+        return [];
+      }
+      if (arrays.length == 1) {
+        return arrays[0];
+      }
+      if (arrays.length == 2) {
+        return this.sandWich(arrays[0], arrays[1]);
+      }
+      return this.arrayProduct(this.sandWich(arrays[0], arrays[1]).concat(arrays.slice(3)));
+     }
      excludeItemsContaining: function(arr, string) {
        var newArray = [];
        for (var i = 0; i < arr.length; i++) {
