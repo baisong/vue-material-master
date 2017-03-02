@@ -144,6 +144,7 @@
         if (word.slice(-1) === '!') {
           word = word.slice(0, -1);
           suffixes.push('-american');
+          suffixes.push('-americans');
         }
         if (word.slice(-1) === '~') {
           word = word.slice(0, -1);
@@ -153,6 +154,8 @@
           word = word.slice(0, -1);
           suffixes.push('-speaking');
         }
+        ethnicities.push(word);
+        ethnicities.push(word + "s");
         ethnicities = ethnicities.concat(this.prefixArray(suffixes, word));
       }
       return ethnicities;
