@@ -63,93 +63,104 @@ var KWM = {
 		demonym_suffixes_plural: ['immigrants', 'migrants', 'refugees', 'newcomers', 'citizens', 'people', 'nieghbors', 'residents', 'americans', 'san diegans', 'san diegan residents'],
 		groups: [{
 			name: "Basic",
-			templateKey: 'adj_prefix',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: false,
+			replace: false
+		}, {
+			name: "Best",
+			term: 'adj_prefix',
+			template: false,
+			replace: false
+		}, {
+			name: "Nouns",
+			term: 'nouns_suffix',
+			template: false,
+			replace: true
+		}, {
+			name: "GeoSuf Nouns",
+			term: 'nouns_suffix',
+			template: 'geo_suffix',
+			replace: true
+		},  {
+			name: "GeoPre Nouns",
+			term: 'nouns_suffix',
+			template: 'geo_prefix',
+			replace: true
+		},  {
+			name: "Best Nouns",
+			term: ['nouns_suffix', 'adj_prefix'],
+			template: false,
+			replace: true
 		}, {
 			name: "Funders",
-			templateKey: 'funders',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'funders',
+			template: false,
+			replace: false
 		}, {
 			name: "Leaders",
-			templateKey: 'leader',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'leader',
+			template: false,
+			replace: false
 		}, {
 			name: "Help",
-			templateKey: 'help',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'help',
+			template: false,
+			replace: false
 		}, {
 			name: "Issues",
-			templateKey: 'issues',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'issues',
+			template: false,
+			replace: false
 		}, {
 			name: "Networks",
-			templateKey: 'network',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'network',
+			template: false,
+			replace: false
 		}, {
 			name: "Action",
-			templateKey: 'action',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'action',
+			template: false,
+			replace: false
 		}, {
 			name: "Law",
-			templateKey: 'law',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: 'law',
+			template: false,
+			replace: false
 		},
 		// Templates - word order matters (use ~ to replace)
 		{
 			name: "Questions",
-			templateKey: 'questions',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'questions',
+			replace: true
 		}, {
 			name: "Donate",
-			templateKey: 'donate',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'donate',
+			replace: true
 		}, {
 			name: "How to give",
-			templateKey: 'donating',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'donating',
+			replace: true
 		}, {
 			name: "Supporting",
-			templateKey: 'supporting',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'supporting',
+			replace: true
 		}, {
 			name: "Geo prefix",
-			templateKey: 'geo_prefix',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'geo_prefix',
+			replace: true
 		}, {
 			name: "Geo suffix",
-			templateKey: 'geo_suffix',
-			before: 'nouns_suffix',
-			after: false,
-			includeOrg: true
+			term: false,
+			template: 'geo_suffix',
+			replace: true
 		}],
 		term_groups: {
-			adj_prefix: ['best', 'good', 'trusted', 'most impact', 'impact', 'amazing', 'incredible', 'top', 'biggest', 'exciting', 'inspiring', 'moving', 'successful', 'success', 'successes', 'win', 'wins', 'victory', 'victories', 'champion', 'champions'],
+			adj_prefix: ['best', 'good', 'trusted', 'most impact', 'most impactful', 'highest impact', 'impact', 'amazing', 'incredible', 'top', 'biggest', 'exciting', 'inspiring', 'moving', 'successful', 'success', 'successes', 'win', 'wins', 'victory', 'victories', 'champion', 'champions'],
 			funders: ['funder', 'funders', 'philanthropy', 'philanthropist', 'philanthropists', 'smart philanthropy', 'smart philanthropy', 'rapid response', 'scapegoating', 'islamophobia', 'anti-islamophobia', 'refugeeswelcome', 'refugees welcome', 'anti-trump', 'anti trump', 'resist', 'resistance', 'integrated voter engagement', 'ive', 'black lives matter', 'blacklivesmatter', 'black lives', 'blacklives', 'blm'],
 			nouns_suffix: ['community', 'communities', 'org', 'orgs', 'leader', 'leaders', 'leadership', 'leadership development', 'community leader', 'community leaders', 'housing initiative', 'organization', 'organizations', 'organizing', 'organizer', 'organizers', 'community organizer', 'community organizers', 'community organizing', 'nonprofit', 'nonprofits', 'non-profit', 'non-profits', 'non profit', 'non profits', 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations'],
 			leader: ['lawyer', 'lawyers', 'legislation', 'representative', 'representatives', 'politician', 'politicians', 'ally', 'allies', 'alliance', 'alliances', 'coalition', 'coalitions', 'rights'],
@@ -170,3 +181,39 @@ var KWM = {
 		//keywords: ['Loading']
 	}
 };
+            /*
+       var keywords = [];
+       var cluster = KWM.clusters[cl];
+       var ethnicities_plural = suffixArray(ethnicities, "s");
+       var keywords = [];
+       keywords = keywords.concat(ethnicities);
+       keywords = keywords.concat(ethnicities_plural);
+       keywords = keywords.concat(d);
+       keywords = keywords.concat(d_plural);
+       // a + (" " OR "-") + b  . . . (AB)
+       var AB = sandWich(ethnicities, [" ", "-"], data.compound_suffixes);
+       keywords = keywords.concat(AB);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", AB));
+       // TODO
+       // PREFIX ALL WITH REFUGEE
+       // (a OR AB) + " " + c . . . . (ABC)
+       var ABC = sandWich(union(ethnicities, AB), " ", c);
+       keywords = keywords.concat(ABC);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", ABC));
+       // (a OR AB) + " " + (d OR d_plural). . . . (ABD)
+       var ABD = sandWich(union(ethnicities, AB), " ", union(d, d_plural));
+       keywords = keywords.concat(ABD);
+       keywords = keywords.concat(sandWich(nouns_prefix, " ", ABD));
+       keywords = keywords.concat(suffixArray(ethnicities, "-american"));
+       keywords = keywords.concat(suffixArray(ethnicities, "-americans"));
+       if (includeOrg) {
+         keywords = keywords.concat(substArray(data.templates.nouns_suffix, keywords));
+       }
+       if (templateKey === "Name") {
+         return keywords;
+       }
+       if (data.templates.hasOwnProperty(templateKey)) {
+         return substArray(data.templates[templateKey], keywords);
+       }
+       return [];
+       */
