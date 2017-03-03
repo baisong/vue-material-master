@@ -61,10 +61,10 @@
         <div class="md-title">{{ title }}</div>
         <div class="md-subhead">{{ subhead }}</div>
       </md-card-header>
-      <md-card-content id="keywords">
-        <ul v-for="keyword in keywords">
-          {{ keyword }}
-        </ul>
+      <md-card-content>
+        <div id="keywords">
+          {{ keywords.join("<br/>") }}
+        </div>
       </md-card-content>
     </md-card>
   </div>
