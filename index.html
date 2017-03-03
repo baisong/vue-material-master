@@ -63,7 +63,9 @@
       </md-card-header>
       <md-card-content>
         <div id="keywords">
-          \{{ keywords.join("<br/>") }}
+        <template v-for="keyword in keywords">
+          {{ keyword }}<br/>
+          </template>
         </div>
       </md-card-content>
     </md-card>
