@@ -229,7 +229,7 @@ var App = new Vue({
       ]);
       var keywords = [];
       if (!group.term && !group.template) {
-        keywords = this.union(keywords, seedwords);
+        keywords = this.union([keywords, seedwords]);
       }
       if (group.term) {
         var terms = group.term;
