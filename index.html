@@ -210,6 +210,7 @@ var App = new Vue({
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
       var demonympronouns = this.arrayProduct([KWM.data.demonym_suffixes, [" "], KWM.data.pronoun_suffixes_plural]);
       var demprodempro = this.union([demonyms, pronouns, demonympronouns]);
+      var ethnicirefugees = this.arrayProduct([ethnicities, ["refugee", "refugees"]]);
       if (ethnicity.hasOwnProperty('places')) {
         var placepeople = this.union([
           this.arrayProduct([ethnicity.places, [" "], demprodempro]),
@@ -242,16 +243,14 @@ var App = new Vue({
           var term = terms[i];
           if (this.term_groups.hasOwnProperty(group.term)) {
             if (!term.endsWith('_suffix') && !term.endsWith('_prefix')) {
-              keywords = this.union([keywords, this.arrayProduct([seedwords, [" "], this.term_groups[term]])]);
-              keywords = this.union([keywords, this.arrayProduct([this.term_groups[term],
-                [" "], seedwords
-              ])]);
+              //keywords = this.union([keywords, this.arrayProduct([seedwords, [" "], this.term_groups[term]])]);
+              //keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], seedwords])]);
+              keywords = this.union([keywords, this.arrayProduct([ethnicirefugees, [" "], this.term_groups[term]])]);
+              keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], ethnicirefugees])]);
             } else if (term.endsWith('_suffix')) {
-              keywords = this.union([keywords, this.arrayProduct([seedwords, [" "], this.term_groups[term]])]);
+              keywords = this.union([keywords, this.arrayProduct([ethnicirefugees, [" "], this.term_groups[term]])]);
             } else if (term.endsWith('_prefix')) {
-              keywords = this.union([keywords, this.arrayProduct([this.term_groups[term],
-                [" "], seedwords
-              ])]);
+              keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], ethnicirefugees])]);
             }
           } else {
             console.log('Cannot find term group "' + group.term + '"');
