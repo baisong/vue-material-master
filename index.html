@@ -210,7 +210,7 @@ var App = new Vue({
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
       var demonympronouns = this.arrayProduct([KWM.data.demonym_suffixes, [" "], KWM.data.pronoun_suffixes_plural]);
       var demprodempro = this.union([demonyms, pronouns, demonympronouns]);
-      var ethnicirefugees = this.arrayProduct([ethnicities, ["refugee", "refugees"]]);
+      var ethnicirefugees = this.arrayProduct([ethnicities, [" refugee", " refugees"]]);
       if (ethnicity.hasOwnProperty('places')) {
         var placepeople = this.union([
           this.arrayProduct([ethnicity.places, [" "], demprodempro]),
