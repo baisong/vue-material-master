@@ -21,6 +21,29 @@ var KWM = {
 		// ! = '-american'
 		activeEthnicity: 0,
 		activeGroup: 0,
+		adtexts: [
+			{
+				line1: 'Stand With San Diego Refugees',
+		  	line2: 'Help PANA Develop New Leaders',
+		  	line3: 'PANA is lifting up refugee voices and building grassroots community leadership.'
+		  },			{
+				line1: 'Fight Trump',
+		  	line2: 'Make A Commitment To Refugees',
+		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!'
+		  }, {
+				line1: 'Fight Trump',
+		  	line2: 'Make A Commitment To Refugees',
+		  	line3: 'Become a monthly donor and help us lift up refugee voices for change.'
+		  }, {
+				line1: 'Fight the Trump Agenda',
+		  	line2: 'Sustain Refugee Rights Work',
+		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!'
+		  }, {
+		  	line1: 'Telling A New Story',
+		  	line2: 'Lifting Up Refugee Communities',
+		  	line3: 'PANA lifts up refugee voices to include all families in our economy. Join today.'
+		  }
+		],
 		ethnicities: [
 			{name: 'so', words: ['somali*~!', 'somalia~!', 'somalian!', 'somaliland!'], places: ['somalia', 'somaliland', 'mogadishu']},
 			{name: 'ke', words: ['kenya~!', 'kenyan!'], places: ['kenya', 'nairobi']},

@@ -61,7 +61,7 @@
         <div class="md-title">{{ title }}</div>
         <div class="md-subhead">{{ subhead }}</div>
       </md-card-header>
-      <md-card-content>
+      <md-card-content id="keywords">
         <ul v-for="keyword in keywords">
           {{ keyword }}
         </ul>
@@ -273,6 +273,7 @@ var App = new Vue({
       return keywords;
     }
   },
+  /*
   watch: {
     activeEthnicity: function(val) {
       this.keywords = [val, this.activeGroup];
@@ -282,6 +283,7 @@ var App = new Vue({
       this.keywords = [this.activeEthnicity, val];
     }
   },
+  */
   computed: {
     // a computed getter
     keywords: function() {
