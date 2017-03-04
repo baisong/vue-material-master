@@ -80,7 +80,7 @@ var KWM = {
 			{name: 'iv', words: ['integrated voter engagement', 'ive']},
 			{name: 'bl', words: ['black lives matter', 'blacklivesmatter', 'black lives', 'blacklives', 'blm']}
 		],
-		pronoun_suffixes: ['youth', 'boy', 'girl',],// 'woman', 'man', 'child', 'family', 'senior', 'elder'],
+		pronoun_suffixes: ['youth', 'boy', 'girl'],// 'woman', 'man', 'child', 'family', 'senior', 'elder'],
 		pronoun_suffixes_plural: ['women', 'men', 'children', 'boys', 'girls'], //'youths', 'families', 'seniors', 'elderly', 'elders'],
 		demonym_suffixes: ['immigrant', 'migrant', 'refugee', 'newcomer', 'citizen', 'neighbor', 'resident', 'american', 'san diegan', 'san diego resident'],
 		demonym_suffixes_plural: ['immigrants', 'migrants', 'refugees', 'newcomers', 'citizens', 'people', 'nieghbors', 'residents', 'americans', 'san diegans', 'san diegan residents'],
