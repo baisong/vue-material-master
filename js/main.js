@@ -82,8 +82,8 @@ var KWM = {
 		],
 		pronoun_suffixes: ['youth', 'boy', 'girl'],// 'woman', 'man', 'child', 'family', 'senior', 'elder'],
 		pronoun_suffixes_plural: ['women', 'men', 'children', 'boys', 'girls'], //'youths', 'families', 'seniors', 'elderly', 'elders'],
-		demonym_suffixes: ['immigrant', 'migrant', 'refugee', 'newcomer', 'citizen', 'neighbor', 'resident', 'american', 'san diegan', 'san diego resident'],
-		demonym_suffixes_plural: ['immigrants', 'migrants', 'refugees', 'newcomers', 'citizens', 'people', 'nieghbors', 'residents', 'americans', 'san diegans', 'san diegan residents'],
+		demonym_suffixes: ['immigrant', 'migrant', 'refugee', 'american', 'san diegan', 'san diego resident'],//  'newcomer', 'citizen', 'neighbor', 'resident',
+		demonym_suffixes_plural: ['immigrants', 'migrants', 'refugees',  'people', 'americans', 'san diegans', 'san diegan residents'], //newcomers', 'citizens', 'nieghbors', 'residents',
 		groups: [{
 			name: "Basic",
 			term: false,
