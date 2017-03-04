@@ -240,3 +240,51 @@ var KWM = {
        }
        return [];
        */
+
+      /*
+      best charities to donate to
+best donation website
+best donation sites
+best donation pages
+donation sites
+online donation sites
+money donation sites
+site for donations
+charity donation sites
+online charity donation sites
+donation sites online
+donation sites near me
+donate to refugees
+donations for refugees
+refugee donation
+donate refugees
+how to donate to refugees
+donate to help refugees
+un refugee donation
+make a donation
+make donation
+make a donation page
+how to make a donation page
+make a donation website
+make donation online
+how to make a donation
+to make a donation
+make a donation to
+where to make donations
+make a donation online
+make donation website
+how to make a donation website
+organizations to donate to
+donation organizations
+top organizations to donate to
+good organizations to donate to
+american donation organization
+charity giving
+giving to charity
+giving charity
+give money to charity
+charity giving sites
+just giving charity
+charity giving percentages
+donation sites for individuals
+       */
