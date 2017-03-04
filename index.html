@@ -60,6 +60,7 @@
       <md-card-header>
         <div class="md-title">{{ title }}</div>
         <div class="md-subhead">{{ subhead }}</div>
+        <md-button v:on:click.native="selectKeywords">Select</md-button>
       </md-card-header>
       <md-card-content>
         <div id="keywords">
@@ -178,6 +179,9 @@ var App = new Vue({
         selection.addRange(range);
       }
     },
+    selectKeywords: function() {
+      this.selectText('keywords');
+    }
     expandEthnicities: function(words) {
       var ethnicities = [];
       for (var i = 0; i < words.length; i++) {
