@@ -55,7 +55,7 @@ var KWM = {
 			{name: 'ke', words: ['kenya~!', 'kenyan!'], places: ['kenya', 'nairobi']},
 			{name: 'sw', words: ['swahili*!', 'uganda~!', 'ugandan!'], places: ['uganda']},
 			{name: 'mu', words: ['muslim!', 'ummah']},
-			{name: 'b1', words: ['black muslim!', 'african muslim!', 'somali muslim!']},
+			{name: 'b1', words: ['black muslim!', 'african muslim!']},
 			{name: 'ar', words: ['arabic*!', 'arab!', 'arabian!'], places: ['the maghreb', 'the magreb', 'northern africa', 'the arab world']},
 			{name: 'me', words: ['amemsa!', 'middle eastern~!', 'middle-eastern~!'], places: ['middle east', 'middle-east', 'the middle east', 'middle-eastern countries', 'middle eastern countries']},
 			{name: 'ps', words: ['palestine~!', 'palestinian~!'], places: ['palestiine', 'gaza', 'gaza strip', 'west bank', 'the west bank']},
@@ -98,7 +98,7 @@ var KWM = {
 			{name: 'n2', words: ['noban', 'nobannowall', 'nobannowallnoraids']},
 			{name: 'ap', words: ['airport', 'airport protest', 'airport protests']},
 			{name: 'wm', words: ['womens march', 'womans march', "women's march"]},
-			{name: 'bm', words: ['black lives', 'blacklives', 'blm']}
+			{name: 'bm', words: ['black lives', 'blm']}
 		],
 		pronoun_suffixes: ['youth', 'boy', 'girl'],// 'woman', 'man', 'child', 'family', 'senior', 'elder'],
 		pronoun_suffixes_plural: ['women', 'men', 'children', 'boys', 'girls'], //'youths', 'families', 'seniors', 'elderly', 'elders'],
