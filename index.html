@@ -165,7 +165,9 @@ var App = new Vue({
       var newArray = [];
       for (var i = 0; i < templates.length; i++) {
         for (var j = 0; j < variables.length; j++) {
-          newArray.push(templates[i].replace('~', variables[j]));
+          if (templates[i] && variables[j]) {
+            newArray.push(templates[i].replace('~', variables[j]));
+          }
         }
       }
       return newArray;
