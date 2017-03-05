@@ -86,7 +86,7 @@
 Tabletop.init({
   key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
   callback: function(sheet, tabletop) {
-    console.log(sheet);
+    //console.log(sheet);
     window.sheet = sheet;
   },
   simpleSheet: true
@@ -129,21 +129,25 @@ var App = new Vue({
     },
     joinArr: function(arr1, arr2) {
       var newArray = [];
+      /*
       console.log('jn:');
       console.log(arr1);
       console.log(arr2);
       console.log('/jn');
+      */
       for (var i = 0; i < arr2.length; i++) {
         newArray = newArray.concat(this.suffixArray(arr1, arr2[i]));
       }
       return newArray;
     },
     sandWich: function(arr1, arr2, arr3) {
+      /*
       console.log('sw:');
       console.log(arr1);
       console.log(arr2);
       console.log(arr3);
       console.log('/sw');
+      */
       return this.joinArr(this.joinArr(arr1, arr2), arr3);
     },
     arrayProduct: function(arrays) {
@@ -166,9 +170,6 @@ var App = new Vue({
       return newArray;
     },
     substArray: function(templates, variables) {
-      console.log('---------------------');
-      console.log(templates);
-      console.log(variables);
       var newArray = [];
       for (var i = 0; i < templates.length; i++) {
         for (var j = 0; j < variables.length; j++) {
