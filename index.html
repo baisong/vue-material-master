@@ -235,7 +235,12 @@ var App = new Vue({
       var basicorgs = this.arrayProduct([basicrefugees, [" "], this.term_groups.nouns_suffix]);
       var basicplusorgs = this.union([ethnicities, basicrefugees, basicorgs]);
       var basicdesc = this.arrayProduct([rlybasicdemos, [" "], ["nonprofit", "non profit", "non-profit", "charity", "organization", "501c3", "org", 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations']]);
-      var basicdesc = this.union([basicdesc, this.arrayProduct([["best "], basicdesc])]);
+      var basicdesc = this.union([
+        basicdesc,
+        this.arrayProduct([["best "], basicdesc]),
+        this.arrayProduct([["san diego", "california", "san francisco", "los angeles"], [" "], basicdesc]),
+        this.arrayProduct([basicdesc, [" "], ["san diego", "california", "san francisco", "los angeles"]])
+      ]);
 
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
