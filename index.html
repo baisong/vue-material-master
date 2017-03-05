@@ -182,23 +182,29 @@ var App = new Vue({
     selectKeywords: function() {
       this.selectText('keywords');
     },
-    expandEthnicities: function(words) {
+    expandEthnicities: function(words, verbose) {
       var ethnicities = [];
       for (var i = 0; i < words.length; i++) {
         var suffixes = [];
         var word = words[i];
         if (word.slice(-1) === '!') {
           word = word.slice(0, -1);
-          suffixes.push('-american');
-          suffixes.push('-americans');
+          if (verbose === true) {
+            suffixes.push('-american');
+            suffixes.push('-americans');
+          }
         }
         if (word.slice(-1) === '~') {
           word = word.slice(0, -1);
-          suffixes.push('-born');
+          if (verbose === true) {
+            suffixes.push('-born');
+          }
         }
         if (word.slice(-1) === '*') {
           word = word.slice(0, -1);
-          suffixes.push('-speaking');
+          if (verbose === true) {
+            suffixes.push('-speaking');
+          }
         }
         ethnicities.push(word);
         ethnicities.push(word + "s");
@@ -208,7 +214,9 @@ var App = new Vue({
     },
     generateKeywords: function(ethnicity, group) { //} templateKey, data, includeOrg) {
       //var e = ethnicity.words;
-      var ethnicities = this.expandEthnicities(ethnicity.words);
+      var ethnicities = this.expandEthnicities(ethnicity.words, true);
+      var basicethnos = this.expandEthnicities(ethnicity.words, false);
+      var basicrefugees = this.union([basicethnos, this.arrayProduct([basicethnos, [" "], ["refugee", "refugees", "migrant", "migrants", "immigrant", "immigrants", "american", "americans"]])]);
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
@@ -237,7 +245,7 @@ var App = new Vue({
       var keywords = [];
       if (!group.term && !group.template) {
         //keywords = this.union([keywords, seedwords]);
-        keywords = this.union([keywords, ethnicirefugees]);
+        keywords = this.union([keywords, basicrefugees]);
       }
       if (group.term) {
         var terms = group.term;
