@@ -221,6 +221,7 @@ var App = new Vue({
       var ethnicities = this.expandEthnicities(ethnicity.words, true);
       var basicethnos = this.expandEthnicities(ethnicity.words, false);
       var basicdemos = this.arrayProduct([basicethnos, [" "], ["refugee", "refugees", "migrant", "migrants", "immigrant", "immigrants", "american", "americans"]]);
+      var rlybasicdemos = this.arrayProduct([basicethnos, [" "], ["refugee", "refugees"]]);
       var basicrefugees = this.union([basicethnos, basicdemos]);
       var basicorgs = this.arrayProduct([basicrefugees, [" "], this.term_groups.nouns_suffix]);
       var basicplusorgs = this.union([ethnicities, basicrefugees, basicorgs]);
@@ -257,10 +258,10 @@ var App = new Vue({
         for (var i = 0; i < termkeys.length; i++) {
           var term = termkeys[i];
           if (term.endsWith('_prefix')) {
-            keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], basicdemos])]);
+            keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], rlybasicdemos])]);
           }
           else {
-            keywords = this.union([keywords, this.arrayProduct([basicdemos, [" "], this.term_groups[term]])]);
+            keywords = this.union([keywords, this.arrayProduct([rlybasicdemos, [" "], this.term_groups[term]])]);
           }
         }
       }
