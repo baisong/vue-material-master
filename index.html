@@ -260,7 +260,6 @@ var App = new Vue({
             keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], basicdemos])]);
           }
           else {
-            keywords = this.union([keywords, this.arrayProduct([this.term_groups[term], [" "], basicdemos])]);
             keywords = this.union([keywords, this.arrayProduct([basicdemos, [" "], this.term_groups[term]])]);
           }
         }
