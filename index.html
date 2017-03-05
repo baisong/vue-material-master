@@ -72,6 +72,10 @@
     </md-card>
   </div>
   <script>
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
 Tabletop.init({
   key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
   callback: function(sheet, tabletop) {
@@ -291,7 +295,7 @@ var App = new Vue({
           }
         }
       }
-      return keywords;
+      return keywords.filter(onlyUnique);
     }
   },
   /*
