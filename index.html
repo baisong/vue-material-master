@@ -194,6 +194,7 @@ var App = new Vue({
     expandEthnicities: function(words, verbose) {
       var ethnicities = [];
       for (var i = 0; i < words.length; i++) {
+        var canPlural = true;
         var suffixes = [];
         var word = words[i];
         if (word.slice(-1) === '!') {
@@ -205,6 +206,7 @@ var App = new Vue({
         }
         if (word.slice(-1) === '~') {
           word = word.slice(0, -1);
+          canPlural = false;
           if (verbose === true) {
             suffixes.push('-born');
           }
@@ -216,7 +218,9 @@ var App = new Vue({
           }
         }
         ethnicities.push(word);
-        ethnicities.push(word + "s");
+        if (canPlural) {
+          ethnicities.push(word + "s");
+        }
         ethnicities = ethnicities.concat(this.prefixArray(suffixes, word));
       }
       return ethnicities;
