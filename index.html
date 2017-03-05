@@ -216,7 +216,10 @@ var App = new Vue({
       //var e = ethnicity.words;
       var ethnicities = this.expandEthnicities(ethnicity.words, true);
       var basicethnos = this.expandEthnicities(ethnicity.words, false);
-      var basicrefugees = this.union([basicethnos, this.arrayProduct([basicethnos, [" "], ["refugee", "refugees", "migrant", "migrants", "immigrant", "immigrants", "american", "americans"]])]);
+      var basicdemos = this.arrayProduct([basicethnos, [" "], ["refugee", "refugees", "migrant", "migrants", "immigrant", "immigrants", "american", "americans"]]);
+      var basicrefugees = this.union([basicethnos, basicdemos]);
+      var basicorgs = this.arrayProduct([basicrefugees, ['community', 'communities', 'org', 'orgs', 'leader', 'leaders', 'leadership', 'leadership development', 'community leader', 'community leaders', 'housing initiative', 'organization', 'organizations', 'organizing', 'organizer', 'organizers', 'community organizer', 'community organizers', 'community organizing', 'nonprofit', 'nonprofits', 'non-profit', 'non-profits', 'non profit', 'non profits', 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations']]);
+      var basicplusorgs = this.union([ethnicities, basicrefugees, basicorgs]);
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
@@ -245,7 +248,7 @@ var App = new Vue({
       var keywords = [];
       if (!group.term && !group.template) {
         //keywords = this.union([keywords, seedwords]);
-        keywords = this.union([keywords, basicrefugees]);
+        keywords = this.union([keywords, basicplusorgs]);
       }
       if (group.term) {
         var terms = group.term;
