@@ -58,7 +58,7 @@
       </md-layout>
       <md-card>
       <md-card-header>
-        <div class="md-title">{{ title }}</div>
+        <div class="md-title">{{ title }}*</div>
         <div class="md-subhead">{{ subhead }}</div>
         <md-button v-on:click.native="selectKeywords">Select</md-button>
       </md-card-header>
@@ -218,7 +218,7 @@ var App = new Vue({
       var basicethnos = this.expandEthnicities(ethnicity.words, false);
       var basicdemos = this.arrayProduct([basicethnos, [" "], ["refugee", "refugees", "migrant", "migrants", "immigrant", "immigrants", "american", "americans"]]);
       var basicrefugees = this.union([basicethnos, basicdemos]);
-      var basicorgs = this.arrayProduct([basicrefugees, ['community', 'communities', 'org', 'orgs', 'leader', 'leaders', 'leadership', 'leadership development', 'community leader', 'community leaders', 'housing initiative', 'organization', 'organizations', 'organizing', 'organizer', 'organizers', 'community organizer', 'community organizers', 'community organizing', 'nonprofit', 'nonprofits', 'non-profit', 'non-profits', 'non profit', 'non profits', 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations']]);
+      var basicorgs = this.arrayProduct([basicrefugees, [" "], this.term_groups.nouns_suffix]);
       var basicplusorgs = this.union([ethnicities, basicrefugees, basicorgs]);
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
@@ -249,6 +249,10 @@ var App = new Vue({
       if (!group.term && !group.template) {
         //keywords = this.union([keywords, seedwords]);
         keywords = this.union([keywords, basicplusorgs]);
+        /*var termkeys = [];
+        for (var i = 0; i < termkeys.length; i++) {
+
+        }*/
       }
       if (group.term) {
         var terms = group.term;
