@@ -82,7 +82,9 @@
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
-
+function nineWordsOrFewer(value, index, self) {
+  return ((typeof value === 'string' || value instanceof String) && (value.split(" ").length < 10));
+}
 Tabletop.init({
   key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
   callback: function(sheet, tabletop) {
@@ -338,7 +340,7 @@ var App = new Vue({
           }
         }
       }
-      return keywords.filter(onlyUnique);
+      return keywords.filter(onlyUnique).filter(nineWordsOrFewer);
     }
   },
   /*
