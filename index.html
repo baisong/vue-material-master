@@ -234,6 +234,9 @@ var App = new Vue({
       var basicrefugees = this.union([basicethnos, basicdemos]);
       var basicorgs = this.arrayProduct([basicrefugees, [" "], this.term_groups.nouns_suffix]);
       var basicplusorgs = this.union([ethnicities, basicrefugees, basicorgs]);
+      var basicdesc = this.arrayProduct(rlybasicdemos, ["nonprofit", "non profit", "non-profit", "charity", "organization", "501c3", "org", 'nonprofit organization', 'nonprofit organizations', 'non-profit organization', 'non-profit organizations', 'non profit organization', 'non profit organizations']]);
+      var basicdesc = this.union([basicdesc, this.arrayProduct(["best ", basicdesc])]);
+
       var placepeople = [];
       var demonyms = this.union([KWM.data.demonym_suffixes, KWM.data.demonym_suffixes_plural]);
       var pronouns = this.union([KWM.data.pronoun_suffixes, KWM.data.pronoun_suffixes_plural]);
@@ -262,7 +265,7 @@ var App = new Vue({
       var keywords = [];
       if (!group.term && !group.template) {
         //keywords = this.union([keywords, seedwords]);
-        keywords = this.union([keywords, basicplusorgs]);
+        keywords = this.union([keywords, basicplusorgs, basicdesc]);
         var termkeys = ['adj_prefix', 'funders', 'leader', 'help', 'issues', 'network', 'action', 'law'];
         for (var i = 0; i < termkeys.length; i++) {
           var term = termkeys[i];
