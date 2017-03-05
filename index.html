@@ -60,6 +60,12 @@
       <md-card-header>
         <div class="md-title">{{ title }}*</div>
         <div class="md-subhead">{{ subhead }}</div>
+        <template v-for="ad in adtexts">
+        {{ ad.line1 }}<br>
+        {{ ad.line2 }}<br>
+        {{ ad.line3 }}
+        <hr>
+        </template>
         <md-button v-on:click.native="selectKeywords">Select</md-button>
       </md-card-header>
       <md-card-content>
