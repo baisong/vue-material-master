@@ -25,23 +25,28 @@ var KWM = {
 			{
 				line1: 'Stand With San Diego Refugees',
 		  	line2: 'Help PANA Develop New Leaders',
-		  	line3: 'PANA is lifting up refugee voices and building grassroots community leadership.'
+		  	line3: 'PANA is lifting up refugee voices and building grassroots community leadership.',
+		  	line4: 'http://panasd.org/sustainer'
 		  },			{
 				line1: 'Fight Trump',
 		  	line2: 'Make A Commitment To Refugees',
-		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!'
+		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!',
+		  	line4: 'http://panasd.org/sustainer'
 		  }, {
 				line1: 'Fight Trump',
 		  	line2: 'Make A Commitment To Refugees',
-		  	line3: 'Become a monthly donor and help us lift up refugee voices for change.'
+		  	line3: 'Become a monthly donor and help us lift up refugee voices for change.',
+		  	line4: 'http://panasd.org/sustainer'
 		  }, {
 				line1: 'Fight the Trump Agenda',
 		  	line2: 'Sustain Refugee Rights Work',
-		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!'
+		  	line3: 'PANA is a 501(c)3 non-profit lifting up refugee voices. Become a monthly donor!',
+		  	line4: 'http://panasd.org/sustainer'
 		  }, {
 		  	line1: 'Telling A New Story',
 		  	line2: 'Lifting Up Refugee Communities',
-		  	line3: 'PANA lifts up refugee voices to include all families in our economy. Join today.'
+		  	line3: 'PANA lifts up refugee voices to include all families in our economy. Join today.',
+		  	line4: 'http://panasd.org/sustainer'
 		  }
 		],
 		ethnicities: [
