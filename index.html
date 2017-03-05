@@ -264,6 +264,13 @@ var App = new Vue({
             keywords = this.union([keywords, this.arrayProduct([rlybasicdemos, [" "], this.term_groups[term]])]);
           }
         }
+        var templates = ['questions', 'donate', 'donating', 'supporting', 'geo_prefix', 'geo_suffix'];
+        for (var i = 0; i < templates.length; i++) {
+          var template = templates[i];
+          if (this.templates.hasOwnProperty(template)) {
+            keywords = this.union([keywords, this.substArray(this.templates[template], rlybasicdemos)]);
+          }
+        }
       }
       if (group.term) {
         var terms = group.term;
@@ -295,7 +302,7 @@ var App = new Vue({
         }
         for (var i = 0; i < templates.length; i++) {
           var template = templates[i];
-          if (this.term_groups.hasOwnProperty(template)) {
+          if (this.templates.hasOwnProperty(template)) {
             keywords = this.union([keywords, this.substArray(this.templates[template])]);
           } else {
             console.log('Cannot find term group "' + group.term + '"');
