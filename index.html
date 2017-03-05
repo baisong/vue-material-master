@@ -204,6 +204,10 @@ var App = new Vue({
         var canPlural = true;
         var suffixes = [];
         var word = words[i];
+        if (word.slice(-1) === '?') {
+          canPlural = false;
+          word = word.slice(0, -1);
+        }
         if (word.slice(-1) === '!') {
           word = word.slice(0, -1);
           if (verbose === true) {

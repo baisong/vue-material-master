@@ -61,7 +61,7 @@ var KWM = {
 			{name: 'ps', words: ['palestine~!', 'palestinian~!'], places: ['palestiine', 'gaza', 'gaza strip', 'west bank', 'the west bank']},
 			{name: 'sy', words: ['syria~!', 'syrian~!'], places: ['syria', 'aleppo']},
 			{name: 'af', words: ['africa~!', 'african!'], places: ['africa']},
-			{name: 'as', words: ['asia~', 'asian~!'], places: ['asia', 'se asia', 'southeast asia']},
+			{name: 'az', words: ['asia~', 'asian~!'], places: ['asia', 'se asia', 'southeast asia']},
 			{name: 'jw', words: ['jewish~!', 'israel~', 'israeli~!'], places: ['israel']},
 			{name: 'vt', words: ['vietnam~', 'vietnamese*~!'], places: ['vietnam']},
 			{name: 'bm', words: ['burma~', 'myanmar~', 'burmese*~!']},
