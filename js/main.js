@@ -55,7 +55,7 @@ var KWM = {
 			{name: 'ke', words: ['kenya~!', 'kenyan!'], places: ['kenya', 'nairobi']},
 			{name: 'sw', words: ['swahili*!', 'uganda~!', 'ugandan!'], places: ['uganda']},
 			{name: 'mu', words: ['muslim!', 'ummah']},
-			{name: 'bm', words: ['black muslim!', 'african muslim!', 'somali muslim!']},
+			{name: 'b1', words: ['black muslim!', 'african muslim!', 'somali muslim!']},
 			{name: 'ar', words: ['arabic*!', 'arab!', 'arabian!'], places: ['the maghreb', 'the magreb', 'northern africa', 'the arab world']},
 			{name: 'me', words: ['amemsa!', 'middle eastern~!', 'middle-eastern~!'], places: ['middle east', 'middle-east', 'the middle east', 'middle-eastern countries', 'middle eastern countries']},
 			{name: 'ps', words: ['palestine~!', 'palestinian~!'], places: ['palestiine', 'gaza', 'gaza strip', 'west bank', 'the west bank']},
